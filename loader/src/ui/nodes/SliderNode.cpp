@@ -230,23 +230,13 @@ float SliderNode::getSnapStep() {
 
 void SliderNode::updateLinkedTextInput() {
     if (m_impl->m_linkedTextInput) {
-        if (m_impl->m_textInputPrecision != 0) {
-            m_impl->m_linkedTextInput->setString(numToString(getValue(), m_impl->m_textInputPrecision));
-        }
-        else {
-            m_impl->m_linkedTextInput->setString(numToString<int>(std::round(getValue())));
-        }
+        m_impl->m_linkedTextInput->setString(fmt::format("{:.{}f}", getValue(), m_impl->m_textInputPrecision));
     }
 }
 
 void SliderNode::updateLinkedLabel() {
     if (m_impl->m_linkedLabel) {
-        if (m_impl->m_labelPrecision != 0) {
-            m_impl->m_linkedLabel->setText(numToString(getValue(), m_impl->m_labelPrecision));
-        }
-        else {
-            m_impl->m_linkedLabel->setText(numToString<int>(std::round(getValue())));
-        }
+        m_impl->m_linkedLabel->setText(fmt::format("{:.{}f}", getValue(), m_impl->m_labelPrecision));
     }
 }
 

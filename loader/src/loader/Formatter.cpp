@@ -76,17 +76,17 @@ $on_mod(Loaded) {
     }).leak();
 
     format::LogFormatEvent<CCFloat>().listen(CCFloat::create(0.f), [] (std::string& output, CCFloat* obj) {
-        output = numToString(obj->getValue());
+        output = fmt::to_string(obj->getValue());
         return ListenerResult::Stop;
     }).leak();
 
     format::LogFormatEvent<CCDouble>().listen(CCDouble::create(0.0), [] (std::string& output, CCDouble* obj) {
-        output = numToString(obj->getValue());
+        output = fmt::to_string(obj->getValue());
         return ListenerResult::Stop;
     }).leak();
 
     format::LogFormatEvent<CCInteger>().listen(CCInteger::create(0), [] (std::string& output, CCInteger* obj) {
-        output = numToString(obj->getValue());
+        output = fmt::to_string(obj->getValue());
         return ListenerResult::Stop;
     }).leak();
 

@@ -218,7 +218,7 @@ protected:
 
         if (invoker != m_input && (invoker != nullptr || !m_input->getInputNode()->m_selected)) {
             // round to 5 decimal places to avoid floating point errors
-            m_input->setString(numToString(round(this->getValue() * 100000.0) / 100000.0));
+            m_input->setString(fmt::to_string(round(this->getValue() * 100000.0) / 100000.0));
         }
 
         auto min = this->getSetting()->getMinValue();

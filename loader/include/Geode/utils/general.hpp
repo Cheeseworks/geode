@@ -128,24 +128,6 @@ namespace geode {
         }
 
         /**
-         * Turn a number into a string, with support for specifying precision
-         * (unlike std::to_string).
-         * @param num Number to convert to string
-         * @param precision Precision of the converted number
-         * @returns Number as string
-         * @note Precision has no effect on integers
-         */
-        template <class Num>
-        std::string numToString(Num num, size_t precision = 0) {
-            if constexpr (std::is_floating_point_v<Num>) {
-                if (precision) {
-                    return fmt::format("{:.{}f}", num, precision);
-                }
-            }
-            return fmt::to_string(num);
-        }
-
-        /**
          * Turn a number into an abbreviated string, like `1253` to `1.25K`
          * @param num Number to convert to string
          * @returns Number as string
@@ -201,7 +183,7 @@ namespace geode {
                 }
                 return negative ? "-" + result : result;
             }
-            return numToString(num);
+            return fmt::to_string(num);
         }
 
         namespace _detail {

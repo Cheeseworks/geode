@@ -101,10 +101,7 @@ public:
     }
 
     void updateBarLabel() {
-        auto percentString = (m_precision > 0) ?
-            fmt::format("{}%", numToString(m_progress, m_precision)) :
-            fmt::format("{:.0f}%", m_progress);
-        m_percentLabel->setText(std::move(percentString));
+        m_percentLabel->setText(fmt::format("{:.{}f}%", m_progress, m_precision));
     }
 
     void updateBar(float value) {

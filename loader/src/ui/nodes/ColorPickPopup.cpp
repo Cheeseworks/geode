@@ -346,12 +346,12 @@ void ColorPickPopup::updateState(CCNode* except) {
             inp->setString(value, false);              \
         }
 
-    IF_NOT_EXCEPT(m_impl->m_rInput, numToString<int>(m_impl->m_color.r));
-    IF_NOT_EXCEPT(m_impl->m_gInput, numToString<int>(m_impl->m_color.g));
-    IF_NOT_EXCEPT(m_impl->m_bInput, numToString<int>(m_impl->m_color.b));
+    IF_NOT_EXCEPT(m_impl->m_rInput, fmt::to_string(m_impl->m_color.r));
+    IF_NOT_EXCEPT(m_impl->m_gInput, fmt::to_string(m_impl->m_color.g));
+    IF_NOT_EXCEPT(m_impl->m_bInput, fmt::to_string(m_impl->m_color.b));
     IF_NOT_EXCEPT(m_impl->m_hexInput, cc3bToHexString(to3B(m_impl->m_color)));
     if (m_impl->m_opacityInput) {
-        IF_NOT_EXCEPT(m_impl->m_opacityInput, numToString(m_impl->m_color.a / 255.f, 2));
+        IF_NOT_EXCEPT(m_impl->m_opacityInput, fmt::format("{:.2f}", m_impl->m_color.a / 255.f));
     }
     if (m_impl->m_opacitySlider) {
         m_impl->m_opacitySlider->setValue(m_impl->m_color.a / 255.f);
