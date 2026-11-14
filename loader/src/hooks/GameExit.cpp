@@ -91,7 +91,7 @@ $on_game(Exiting) {
     // ...
     // _DAT_1801a8530 = uVar4;  <-- this is the address we want!
 
-#if GEODE_COMP_GD_VERSION != 22090
+#if GEODE_COMP_GD_VERSION != 22091
     #pragma message("Unsupported GD version!")
     return;
 #endif
