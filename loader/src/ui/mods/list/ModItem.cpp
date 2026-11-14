@@ -14,8 +14,7 @@
 #include <Geode/utils/ColorProvider.hpp>
 #include <optional>
 #include <server/DownloadManager.hpp>
-#include <string>
-#include <ui/mods/GeodeStyle.hpp>
+#include <ui/GeodeStyle.hpp>
 #include <ui/mods/popups/DevPopup.hpp>
 #include <ui/mods/popups/ModPopup.hpp>
 #include <ui/mods/sources/ModListSource.hpp>
